@@ -38,7 +38,7 @@ export default{
         {
             name: 'details',
             title: 'Details',
-            type: 'String',
+            type: 'string',
         }
     ]
 }

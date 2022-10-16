@@ -22,8 +22,8 @@ export default{
             type: 'string',
         },
         {
-            name: 'slug',
-            title: 'Slug',
+            name: 'SKU',
+            title: 'Sku',
             type: 'slug',
             options: {
                 source: 'name',

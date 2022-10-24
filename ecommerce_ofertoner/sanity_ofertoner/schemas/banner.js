@@ -56,5 +56,10 @@ export default {
             title: 'SaleTime',
             type: 'string',
         },
+        {
+            name: 'stock',
+            title: 'Stock',
+            type: 'string',
+        },
     ],
 };

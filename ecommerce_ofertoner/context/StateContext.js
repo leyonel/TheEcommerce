@@ -10,14 +10,14 @@ export const StatrContext = ({children}) => {
 
     const [cartItems, setCartItems] = useState([]);
     const [totalPrice, setTotalPrice] = useState();
-    const [totalCantidades, setTotalCantidades] = useState();
+    const [totalQuantities, setTotalQuantities] = useState(0);
     const [qty, setQty] = useState(1);
 
     const onAdd = (product, quantity) => {
         const checkProductInCart = cartItems.find((item) => item._id === product._id);
 
         setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity);
-        setTotalCantidades((prevTotalQuantities) => prevTotalQuantities + quantity);
+        setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
 
         if (checkProductInCart) {
             const updateCartItems = cartItems.map((cartProduct) => {
@@ -50,9 +50,10 @@ export const StatrContext = ({children}) => {
         <Context.Provider
             value= {{
                 showCart,
+                setShowCart,
                 cartItems,
                 totalPrice,
-                totalCantidades,
+                totalQuantities,
                 qty,
                 incQty,
                 decQty,

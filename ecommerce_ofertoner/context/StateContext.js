@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect} from 'react';
-import { Toast } from 'react-hot-toast';
+import toast, { Toast } from 'react-hot-toast';
 
 const Context = createContext();
 
@@ -8,10 +8,43 @@ const Context = createContext();
 export const StatrContext = ({children}) => {
     const [showCart, setShowCart] = useState(false);
 
-    const [cartItems, setCartItems] = useState();
+    const [cartItems, setCartItems] = useState([]);
     const [totalPrice, setTotalPrice] = useState();
     const [totalCantidades, setTotalCantidades] = useState();
     const [qty, setQty] = useState(1);
+
+    const onAdd = (product, quantity) => {
+        const checkProductInCart = cartItems.find((item) => item._id === product._id);
+
+        setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity);
+        setTotalCantidades((prevTotalQuantities) => prevTotalQuantities + quantity);
+
+        if (checkProductInCart) {
+            const updateCartItems = cartItems.map((cartProduct) => {
+                if (cartProduct._id === product._id) return {
+                    ...cartProduct,
+                    quantity: cartProduct.quantity + quantity
+                }
+            })
+
+            setCartItems(updateCartItems);
+          
+        } else {
+            product.quantity = quantity;
+            
+            setCartItems([...cartItems, {...product}]);
+        }
+        toast.success(`${qty} ${product.name} Agregado al Carrito`);
+    }
+
+    const incQty = () => {
+        setQty((prevQty) => prevQty + 1);
+    }
+    const decQty = () => {
+        setQty((prevQty) => {
+            if (prevQty - 1 < 1) return 1;
+           return prevQty - 1});
+    }
 
     return (
         <Context.Provider
@@ -20,10 +53,15 @@ export const StatrContext = ({children}) => {
                 cartItems,
                 totalPrice,
                 totalCantidades,
-                qty
+                qty,
+                incQty,
+                decQty,
+                onAdd
             }}
         >
             {children}
         </Context.Provider>
     )
 }
+
+export const useStateContext = () => useContext(Context);

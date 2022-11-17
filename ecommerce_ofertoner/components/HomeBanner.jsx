@@ -13,9 +13,9 @@ const HomeBanner = ({ homeBanner}) => {
         <img src= {urlFor(homeBanner.image)} alt="toner" className='hero-banner-image' />
 
         <div>
-           <Link href= {`/product/${homeBanner.product}`}>
+           {/* <Link href= {`/product/${homeBanner.product}`}>
               <button type='button'>{ homeBanner.buttonText}</button>
-           </Link>
+           </Link> */}
 
            <div className='desc'>
               <h5>{homeBanner.product}</h5>

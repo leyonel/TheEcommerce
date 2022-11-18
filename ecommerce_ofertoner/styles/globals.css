@@ -104,18 +104,21 @@ width: 100%;
   width: 100%;
 }
 .product-card{
+  padding: 5px;
  cursor: pointer;
   transform: scale(1, 1);
   transition: transform 0.5s ease;
+  background-color: #84898d6f;
+  border-radius: 8%;
  color: #324d67;
-
 }
 .product-card:hover{
-  transform: scale(1.1,1.1)
+  transform: scale(1.1,1.1);
+  background-color: #df61618c;
 }
 .product-image{
   border-radius: 15px;
- background-color: #ebebeb;
+  background-color: #2e2323;
   transform: scale(1, 1);
   transition: transform 0.5s ease;
 }
@@ -212,7 +215,7 @@ text-align: end;
   font-weight: 200;
 }
 .footer-banner-container{
-  padding: 100px 40px;
+  padding: 60px 20px;
   background-color: #f02d34;
   border-radius: 15px;
   position: relative;
@@ -247,11 +250,11 @@ text-align: end;
 }
 .footer-banner-image{
   position: absolute;
-  /* top: -35%;
-  left: 8%; */
-  top: -25%;
-  left: 25%;
+  top: 55%;
+  left: 20%; 
+  border-radius: 10px;
 }
+
 .banner-desc .right{
   line-height: 1.4;
 }
@@ -421,6 +424,11 @@ padding: 30px 65px;
  margin: 40px;
  margin-top: 60px;
  color: #324d67;
+ padding-left: 2%;
+ padding-top: 2%;
+ padding-bottom: 2%;
+ border-radius: 20px;
+ background-color: #dbd5d5eb;
 
 }
 
@@ -634,21 +642,21 @@ margin-top: 160px;
     margin-top: 80px;
   }
   .footer-banner-image{
-    width: 77%;
-    left: 30%;
-    top: 6%;
-    height: 56%
+    width: 47%;
+    left: 10%;
+    top: 55%;
+    height: 26%
   }
   .banner-desc .left h3{
     font-weight: 900;
-    font-size: 50px;
+    font-size: 60px;
     margin-left: 5px;
   }
   .banner-desc .left p{
     margin:18px;
   }
   .banner-desc .right h3{
-    font-size: 45px;
+    font-size: 35px;
   }
   .banner-desc .right p{
     font-size: 18px;
